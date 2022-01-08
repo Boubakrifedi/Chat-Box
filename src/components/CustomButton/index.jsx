@@ -1,9 +1,11 @@
-import "./index.css"
+import "./index.css";
 
-const CustomButton = ({text,onClick}) => {
-    return (
-        <button className="custom-button" onClick={onClick}>{text}</button>
-    )
-}
+const CustomButton = ({ text, onClick }) => {
+  return (
+    <a href="#" onClick={onClick}>
+      {text}
+    </a>
+  );
+};
 
-export default CustomButton
+export default CustomButton;

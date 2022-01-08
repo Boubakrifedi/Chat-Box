@@ -1,11 +1,9 @@
-
 import "./index.css";
 
-const CustomInput = ({value,onChange,placeholder}) => {
-  
-    return (
-           <input value = {value} onChange={onChange} placeholder={placeholder}/>
-        )
-}
+const CustomInput = ({ value, onChange, placeholder }) => {
+  return (
+    <textarea value={value} placeholder={placeholder} onChange={onChange} />
+  );
+};
 
 export default CustomInput;
