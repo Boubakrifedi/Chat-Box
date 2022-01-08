@@ -2,10 +2,8 @@ import { actionTypes } from "./constants";
 
 // //  initialiser notre state
 const initialState = {
-  messages: [
-    { from: "me", date: "10:12AM", name: "Youness", message: "helo chef" },
-    { from: "you", date: "10:12AM", name: "Mustapha", message: "helo chef" },
-  ],
+  messages: [],
+  lastIndex: 0,
 };
 
 const messagesReducer = (state = initialState, action) => {
@@ -14,6 +12,10 @@ const messagesReducer = (state = initialState, action) => {
       return {
         ...state,
         messages: action.payload,
+        lastIndex:
+          action.payload && action.payload.length > 0
+            ? action.payload.length
+            : 0,
       };
 
     default:

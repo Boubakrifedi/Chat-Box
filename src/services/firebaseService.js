@@ -1,6 +1,6 @@
 import firebase from "../firebase";
 
-const todoService = (collectionName) => {
+const firebaseService = (collectionName) => {
   const db = firebase.collection(collectionName);
 
   const getAll = () => {
@@ -21,4 +21,4 @@ const todoService = (collectionName) => {
   return { getAll, create, update, remove };
 };
 
-export { todoService };
+export { firebaseService };

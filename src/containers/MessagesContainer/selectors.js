@@ -9,4 +9,10 @@ const makeSelectMessagesData = () =>
     (messagesState) => messagesState.messages
   );
 
-export { makeSelectMessagesData };
+const makeSelectLastIndex = () =>
+  createSelector(
+    selectFromMessagesStateDomain,
+    (messagesState) => messagesState.lastIndex
+  );
+
+export { makeSelectMessagesData, makeSelectLastIndex };
