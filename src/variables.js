@@ -8,4 +8,8 @@ const firebaseConfig = {
   measurementId: process.env.REACT_APP_MEASUREMENT_ID,
 };
 
-export { firebaseConfig };
+const currentUser = {
+  name: process.env.REACT_APP_CURRENT_USER_NAME,
+  userID: process.env.REACT_APP_CURRENT_USER_ID,
+};
+export { firebaseConfig, currentUser };

@@ -11,5 +11,8 @@ const MessageItem = ({ from, date, name, message }) => (
     <div class="message">{message}</div>
   </li>
 );
+MessageItem.defaultProps = {
+  from: "you",
+};
 
 export default MessageItem;
