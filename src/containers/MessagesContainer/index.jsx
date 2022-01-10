@@ -41,8 +41,10 @@ const MessagesContainer = () => {
 
   // UseEffect for scrolling
   useEffect(() => {
-    messageEndRef.current?.scrollIntoView();
+    messageEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
+
+
 
   return (
     <ul id="chat">
