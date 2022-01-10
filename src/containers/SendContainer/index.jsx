@@ -14,8 +14,13 @@ const SendContainer = () => {
   const { create } = firebaseService(collections.chat);
   const { lastIndex } = useSelector(messagesState);
   const [message, setMessage] = useState("");
-  const handleClick = () => {
-    if (!message && currentUser && currentUser.name && currentUser.userID)
+  const handleClick = (e) => {
+    if (
+      !message ||
+      !currentUser.name ||
+      !currentUser.userID ||
+      e.charCode !== "13"
+    )
       return;
     const data = {
       ...currentUser,
@@ -36,6 +41,7 @@ const SendContainer = () => {
         value={message}
         placeholder="Type your message"
         onChange={(e) => handleChange(e.target.value)}
+        onKeyPress={handleClick}
       />
       <CustomButton text="Send" onClick={handleClick} />
     </footer>
