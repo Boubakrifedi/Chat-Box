@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { createStructuredSelector } from "reselect";
 import MessageItem from "../../components/MessageItem";
@@ -7,6 +7,7 @@ import { isCUrrentUser } from "../../utils/chat-utils";
 import { setMessages } from "./actions";
 import { makeSelectMessagesData } from "./selectors";
 import { collections } from "../../utils/constants";
+
 const messagesState = createStructuredSelector({
   messages: makeSelectMessagesData(),
 });
@@ -16,6 +17,10 @@ const MessagesContainer = () => {
 
   const dispatch = useDispatch();
   const { getAll } = firebaseService(collections.chat);
+
+  // Ref
+  const messageEndRef = useRef(null);
+
   const onDataChange = (items) => {
     let messages = [];
 
@@ -33,6 +38,14 @@ const MessagesContainer = () => {
   useEffect(() => {
     getAll().orderBy("order", "asc").onSnapshot(onDataChange);
   }, []);
+
+  // UseEffect for scrolling
+  useEffect(() => {
+    messageEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [messages]);
+
+
+
   return (
     <ul id="chat">
       {messages &&
@@ -41,6 +54,7 @@ const MessagesContainer = () => {
           const messageProps = { ...item, from: isCUrrentUser(item.userID) };
           return <MessageItem key={index} {...messageProps} />;
         })}
+      <div ref={messageEndRef} />
     </ul>
   );
 };
