@@ -19,9 +19,10 @@ const SendContainer = () => {
       !message ||
       !currentUser.name ||
       !currentUser.userID ||
-      e.charCode !== "13"
+      (e.charCode !== 13 && e.type === "keypress")
     )
       return;
+
     const data = {
       ...currentUser,
       date: new Date().toUTCString(),
