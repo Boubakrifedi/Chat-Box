@@ -7,6 +7,8 @@ import { collections } from "../../utils/constants";
 import { createStructuredSelector } from "reselect";
 import { makeSelectLastIndex } from "../MessagesContainer/selectors";
 import { useSelector } from "react-redux";
+import React from "react";
+
 const messagesState = createStructuredSelector({
   lastIndex: makeSelectLastIndex(),
 });
@@ -35,7 +37,7 @@ const SendContainer = () => {
       <CustomInput
         value={message}
         placeholder="Type your message"
-        onChange={(e) => handleChange(e.target.value)}
+        onChange={(e: any ) => handleChange(e.target.value)}
       />
       <CustomButton text="Send" onClick={handleClick} />
     </footer>

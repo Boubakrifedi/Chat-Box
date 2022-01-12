@@ -1,4 +1,5 @@
 import "./index.css";
+import React from "react";
 
 const CustomInput = ({ value, onChange, placeholder }) => {
   return (
