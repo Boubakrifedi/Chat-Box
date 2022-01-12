@@ -1,5 +1,7 @@
 import MessagesContainer from "../../containers/MessagesContainer";
 import SendContainer from "../../containers/SendContainer";
+import React from "react";
+
 
 const Home = () => {
   return (

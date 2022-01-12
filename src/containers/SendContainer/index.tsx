@@ -29,7 +29,7 @@ const SendContainer = () => {
       setMessage("");
     });
   };
-  const handleChange = (value) => {
+  const handleChange = (value: string) => {
     setMessage(value);
   };
   return (

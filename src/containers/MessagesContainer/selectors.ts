@@ -1,4 +1,6 @@
 import { createSelector } from "reselect";
+import React from "react";
+
 
 const selectFromMessagesStateDomain = (globalState) =>
   globalState.messagesState;

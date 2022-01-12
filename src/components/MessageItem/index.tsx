@@ -1,6 +1,13 @@
 import { boolColor } from "../../utils/chat-utils";
 import "./index.css";
-const MessageItem = ({ from, date, name, message }) => (
+import React from "react";
+interface Message{
+  from: string,
+  date: Date,
+  name: string,
+  message: string
+}
+const MessageItem = ({ from, date, name, message }:Message) => (
   <li className={from}>
     <div className="entete">
       <h3>{date}</h3>

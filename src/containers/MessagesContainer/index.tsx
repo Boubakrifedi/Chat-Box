@@ -20,11 +20,10 @@ const MessagesContainer = () => {
 
   // Ref
   const messageEndRef = useRef(null);
-
-  const onDataChange = (items) => {
+  const onDataChange = (items : any) => {
     let messages = [];
 
-    items.docs.forEach((item) => {
+    items.docs.forEach((item : any) => {
       let id = item.id;
       let data = item.data();
       const newItem = { ...data, docId: id };
@@ -33,7 +32,7 @@ const MessagesContainer = () => {
       });
     });
 
-    dispatch(setMessages(messages));
+    dispatch(setMessages(messages: any));
   };
   useEffect(() => {
     getAll().orderBy("order", "asc").onSnapshot(onDataChange);

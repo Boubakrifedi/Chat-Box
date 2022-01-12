@@ -1,4 +1,6 @@
 import firebase from "../firebase";
+import React from "react";
+
 
 const firebaseService = (collectionName) => {
   const db = firebase.collection(collectionName);

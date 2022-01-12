@@ -1,4 +1,5 @@
 import { actionTypes } from "./constants";
+import React from "react";
 
 // //  initialiser notre state
 const initialState = {
